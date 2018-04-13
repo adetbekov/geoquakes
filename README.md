@@ -19,4 +19,17 @@ Install `requirements`
 $ pip install -r req.txt
 ```
 
+## FirstRun
+
+``` bash
+$ python manage.py makemigrations
+$ python manage.py migrate
+```
+
+## Run server
+
+``` bash
+$ python manage.py runserver
+```
+
 That's it!
