@@ -1,0 +1,44 @@
+{% extends 'index.html' %}
+{% block title %}
+	Жиілік өзгерістері
+{% endblock %}
+{% block content %}
+	<br><br><br>
+	<div class="container">
+	  <canvas id="myChart" width="100%"></canvas>
+	</div>
+	<script>
+	  new Chart(document.getElementById("myChart"),{
+	    "type":"line",
+	    "data":{
+	      "labels":[
+	        {% for i in data %}
+	          "{{i.year}}",
+	        {% endfor %}
+	      ],
+	      "datasets":[{
+	        "label":"Жиілігі",
+	        "data":[
+	          {% for i in data %}
+	            parseFloat('{{i.count}}'),
+	          {% endfor %}
+	        ],
+	        "fill":false,
+	        "borderColor":"#e74c3c",
+	        "lineTension":0.1}
+	        ]
+	      },
+	      "options":{
+	        scales: {
+	            yAxes: [{
+	                ticks: {
+	                    beginAtZero:true,
+	                    min: 0,
+	                    max: 25 
+	                }
+	              }]
+	           }
+	      }
+	    });
+	</script>
+{% endblock %}

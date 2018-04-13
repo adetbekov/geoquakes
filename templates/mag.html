@@ -1,0 +1,64 @@
+{% extends 'index.html' %}
+{% block title %}
+	Магнитуда өзгерістері
+{% endblock %}
+{% block content %}
+	<br><br><br>
+	<div class="container">
+	  <canvas id="myChart" width="100%"></canvas>
+	</div>
+	<script>
+	  new Chart(document.getElementById("myChart"),{
+	    "type":"line",
+	    "data":{
+	      "labels":[
+	        {% for i in data %}
+	          "{{i.year}}",
+	        {% endfor %}
+	      ],
+	      "datasets":[{
+	        "label":"Орташа магнитудасы",
+	        "data":[
+	          {% for i in data %}
+	            parseFloat('{{i.mag|stringformat:"f"}}'),
+	          {% endfor %}
+	        ],
+	        "fill":false,
+	        "borderColor":"#e74c3c",
+	        "lineTension":0.1},
+	        {
+	        "label":"Минимум магнитудасы",
+	        "data":[
+	          {% for i in data %}
+	            parseFloat('{{i.min}}'),
+	          {% endfor %}
+	        ],
+	        "fill":false,
+	        "borderColor":"#9b59b6",
+	        "lineTension":0.1},
+	        {
+	        "label":"Максимум магнитудасы",
+	        "data":[
+	          {% for i in data %}
+	            parseFloat('{{i.max}}'),
+	          {% endfor %}
+	        ],
+	        "fill":false,
+	        "borderColor":"#2ecc71",
+	        "lineTension":0.1},
+	        ]
+	      },
+	      "options":{
+	        scales: {
+	            yAxes: [{
+	                ticks: {
+	                    beginAtZero:true,
+	                    min: 0,
+	                    max: 12 
+	                }
+	              }]
+	           }
+	      }
+	    });
+	</script>
+{% endblock %}
