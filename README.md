@@ -26,10 +26,19 @@ $ python manage.py makemigrations
 $ python manage.py migrate
 ```
 
+## Create Super User
+
+``` bash
+$ python manage.py createsuperuser
+```
+
 ## Run server
 
 ``` bash
 $ python manage.py runserver
 ```
+
+## Admin 
+Admin panel located on localhost:8000/admin
 
 That's it!
