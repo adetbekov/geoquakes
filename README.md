@@ -1,6 +1,6 @@
 # geoquakes
 
-> Sample project
+> Sample lab project - KazNU
 
 ## Build Setup
 
